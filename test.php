@@ -4,11 +4,11 @@ class Sequence{
 	private $numbers = [];
 	private $maxCount;
 
-	public function __construct($maxCount){
+	public function __construct(int $maxCount){
 		$this->maxCount = $maxCount;
 	}
 
-	public function add($num){
+	public function add(int $num){
 		if ( count($this->numbers) < $this->maxCount ){
 			$this->numbers[] = $num;
 		} else{
@@ -16,7 +16,7 @@ class Sequence{
 		}
 	}
 
-	private function getMinNumber(){
+	private function getMinNumber():int{
 		$minVal = 0;
 		$minKey = 0;
 		foreach($this->numbers as $key => $value){
@@ -28,7 +28,7 @@ class Sequence{
 		return $minKey;
 	}
 
-	public function getMaxNumbers(){
+	public function getMaxNumbers():array{
 		return $this->numbers;
 	}
 }
