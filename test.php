@@ -12,11 +12,23 @@ class Sequence{
 		if ( count($this->numbers) < $this->maxCount ){
 			$this->numbers[] = $num;
 		} else{
-			$this->Numbers[$this->getMinNumber()] = $num;
+			if ($this->getMinNumber() < $num ){
+				$this->Numbers[$this->getMinKey()] = $num;
+			}			
 		}
 	}
 
 	private function getMinNumber():int{
+		$minVal = 0;
+		foreach($this->numbers as $value){
+			if ($minVal > $value){
+				$minVal = $value;
+			}
+		}
+		return $minVal;
+	}
+
+	private function getMinKey():int{
 		$minVal = 0;
 		$minKey = 0;
 		foreach($this->numbers as $key => $value){
